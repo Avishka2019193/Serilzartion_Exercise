@@ -12,4 +12,6 @@ public class MemberEntranceRecord extends Member{
         this.timeArrived = timeArrived;
         this.timeLeft = timeLeft;
     }
+
+
 }

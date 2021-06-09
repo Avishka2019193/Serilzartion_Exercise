@@ -7,6 +7,7 @@ public class EntranceRegister extends MemberEntranceRecord{
     private GuestEntranceRecord guestEntranceRecord;
 
     public EntranceRegister(Date date, MemberEntranceRecord memberEntranceRecord, GuestEntranceRecord guestEntranceRecord) {
+        super();
         this.date = date;
         this.memberEntranceRecord = memberEntranceRecord;
         this.guestEntranceRecord = guestEntranceRecord;

@@ -11,4 +11,6 @@ public class Person implements Serializable {
         this.dateOfBirth = dateOfBirth;
         this.nicNumber = nicNumber;
     }
+
+
 }

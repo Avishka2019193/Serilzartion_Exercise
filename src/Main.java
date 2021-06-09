@@ -1,3 +1,4 @@
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,7 +31,7 @@ public class Main {
                 } else if (choice == 2) {
                     addGuest();
                 } else if (choice == 3) {
-
+                    updateRecord();
                 } else if (choice == 4) {
 
                 } else if (choice == 5) {
@@ -119,11 +120,13 @@ public class Main {
 
         String name, nicNumber, credential = null;
         Date dateOfBirth, dateOfRegistration, dateOfExpiration;
-        Long memberID;
+        Long guestID;
 
         name = input_Manager.getAlphabetic("\t ~ Enter full name :", "Invalid Input !!" +
                 "Please Enter Valid Name...");
-        System.out.println("add date (yyyy/MM/dd)");
+        guestID = inputManager.getLongInput("\t ~ Member ID :", "Invalid Input !!" +
+                "Please Enter Valid Member ID...");
+        System.out.println("date of birth (yyyy/MM/dd)");
         DateFormat format = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
 
         try {
@@ -139,6 +142,7 @@ public class Main {
     }
     private static void updateRecord(){
         String type = null;
+
         System.out.println("\t ~ Select the type you want to update...");
         System.out.println("\t \t A) update member records.");
         System.out.println("\t \t B) update guest records.");
@@ -147,8 +151,96 @@ public class Main {
 
         while (true) {
             if ("A".equals(type.toUpperCase())) {
+                Date Date;
+                Long memberID;
+                memberID = inputManager.getLongInput("\t ~ Member ID :", "Invalid Input !!" +
+                        "Please Enter Valid Member ID...");
+
+                System.out.print("Arrival date (yyyy/MM/dd) :");
+                DateFormat format = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+
+                try {
+                    Date = format.parse(consoleInput.next());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.print("Arrived Time (hh:mm:ss): ");
+                String myArrivedTime = consoleInput.next();
+                SimpleDateFormat timeArrived = new SimpleDateFormat("hh:mm:ss");
+                Date date = null;
+                try {
+                    date = timeArrived.parse(myArrivedTime);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                String formattedTime = timeArrived.format(date);
+
+                System.out.print("Departed Time (hh:mm:ss): ");
+                String myLeftTime = consoleInput.next();
+                SimpleDateFormat timeLeft = new SimpleDateFormat("hh:mm:ss");
+                Date date1 = null;
+                try {
+                    date = timeArrived.parse(myLeftTime);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                String formattedTime1 = timeArrived.format(date1);
+
+                Long userID = null;
+                int pin = 0;
+                Date createdDate,expiryDate = null;
+
+                userID = inputManager.getLongInput("\t ~ User ID :", "Invalid Input !!" +
+                        "Please Enter Valid User ID...");
+
+                pin = inputManager.getIntegerInput("\t ~ User pin :", "Invalid Input !!" +
+                        "Please Enter Valid User pin...");
+
+                System.out.println("Created date (yyyy/MM/dd)");
+                try {
+                    createdDate = format.parse(consoleInput.next());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println("Expiry Date (yyyy/MM/dd)");
+                try {
+                    expiryDate = format.parse(consoleInput.next());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+
+
 
             } else if ("B".equals(type.toUpperCase())) {
+
+                String purpose;
+                System.out.print("Purpose of arrival :");
+                purpose = consoleInput.next();
+                System.out.print("Arrived Time (hh:mm:ss): ");
+                String myTime = consoleInput.next();
+                SimpleDateFormat timeArrived = new SimpleDateFormat("hh:mm:ss");
+                Date date = null;
+                try {
+                    date = timeArrived.parse(myTime);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                String formattedTime = timeArrived.format(date);
+
+                System.out.print("Departed Time (hh:mm:ss): ");
+                String myLeftTime = consoleInput.next();
+                SimpleDateFormat timeLeft = new SimpleDateFormat("hh:mm:ss");
+                Date date1 = null;
+                try {
+                    date = timeArrived.parse(myLeftTime);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                String formattedTime1 = timeArrived.format(date1);
 
             } else {
                 System.out.println("Invalid type. Please re-enter");

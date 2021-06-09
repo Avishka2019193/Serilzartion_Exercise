@@ -6,4 +6,9 @@ public class Person implements Serializable {
     private Date dateOfBirth;
     private String nicNumber;
 
+    public Person(String name, Date dateOfBirth, String nicNumber) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.nicNumber = nicNumber;
+    }
 }

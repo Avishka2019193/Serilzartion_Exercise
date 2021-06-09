@@ -1,8 +1,14 @@
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     private static Scanner consoleInput = new Scanner(System.in);
     private static Manager Manager = new Manager();
+
     public static void main(String[] args) {
         InputManager inputManager = new InputManager();
         // add boolean operator//
@@ -20,15 +26,15 @@ public class Main {
                 if (choice == 1) {
                     addMember();
                 } else if (choice == 2) {
-                   
+
                 } else if (choice == 3) {
                     displayMember();
                 } else if (choice == 4) {
-                    
+
                 } else if (choice == 5) {
 
-                }else if (choice == 6) {
-                    
+                } else if (choice == 6) {
+
                 }
                 // Ask the user. What they want to do..//
                 System.out.print("Do you want to continue [y / n]: ");
@@ -59,40 +65,26 @@ public class Main {
         System.out.println("~~~~~~~~~~~~~~~~~~~~Add Member~~~~~~~~~~~~~~~~~~~~~\n");
         InputManager inputManager = new InputManager();
 
-        // Check the member count
-        int memberCount = Manager.getMemberCount();
-        if (memberCount > 100) {
-            System.out.println("Reached maximum number of members !!!");
-        } else {
-            // Display count of registered members in the system and the free sheets count in the system //
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            System.out.println("Current Member count : " + memberCount);
-            System.out.println("Remaining Count: " + (100 - memberCount));
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            int membershipNumber, contactNumber = 0;
-            String name = null;
-            String startMembershipDate = null;
-            String type = null;
-            membershipNumber = inputManager.getIntegerInput("\t ~ Enter member number :", "Invalid Input !! " +
-                    "Please Enter Valid Number...");
-            name = inputManager.getAlphabetic("\t ~ Enter full name :", "Invalid Input !!" +
-                    "Please Enter Valid Name...");
-            contactNumber = inputManager.getIntegerInput("\t ~ Enter contact number :", "Invalid Input !! " +
-                    "Please Enter Valid Contact Number... ");
+        String name = null;
+        Date dateOfBirth;
+        String nicNumber;
+        Long memberID;
+        Date dateOfRegistration;
+        Date dateOfExpiration;
+        SecurityCredentials credential;
 
+        name = inputManager.getAlphabetic("\t ~ Enter full name :", "Invalid Input !!" +
+                "Please Enter Valid Name...");
+        System.out.println("add date (yyyy/MM/dd)");
+        DateFormat format = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
 
-            System.out.print("\t ~ Enter current address :");
-            String address = consoleInput.next();
+        try {
+            dateOfBirth = format.parse(consoleInput.next());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-
-            System.out.println("\t ~ Enter the type of member...");
-            System.out.println("\t \t A) Make a default member.");
-            System.out.println("\t \t B) Make a student member.");
-            System.out.println("\t \t C) Make a over 60 member.");
-            type = inputManager.getAlphabetic("\t ~ Enter the type you want :", "Invalid Input !!" +
-                    "Please Enter Valid Letter...");
-//
-            Person member = null;
+        Person member = null;
 //
 //            while (true) {
 //                if ("A".equals(type.toUpperCase())) {
@@ -113,17 +105,11 @@ public class Main {
 //                            "Please Enter Valid Letter...");
 //                }
 //            }
-            Manager.addMember(member);
-        }
-
-
+        Manager.addMember(member);
     }
+
 
     private static void displayMember() {
 
     }
-
-
-
-
 }

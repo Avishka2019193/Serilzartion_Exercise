@@ -48,4 +48,25 @@ public class InputManager {
             }
         }
     }
+
+    public static boolean isLong(String userInput) {
+        try {
+            Long num = Long.parseLong(userInput);
+            return true;
+        } catch (Exception exception) {
+            return false;
+        }
+    }
+
+    public Long getLongInput(String inputMessage, String errorMessage){
+        while (true) {
+            System.out.print(inputMessage);
+            String userInput = scanner.next();
+            if (isLong(userInput)) {
+                return Long.parseLong(userInput);
+            } else {
+                System.out.print(errorMessage);
+            }
+        }
+    }
 }

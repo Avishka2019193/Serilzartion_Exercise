@@ -27,7 +27,7 @@ public class Main {
                 if (choice == 1) {
                     addMember();
                 } else if (choice == 2) {
-
+                    addGuest();
                 } else if (choice == 3) {
 
                 } else if (choice == 4) {
@@ -135,5 +135,8 @@ public class Main {
         nicNumber = consoleInput.next();
         Person guest = null;
         Manager.addGuest(guest);
+    }
+    private static void updateRecord(){
+        
     }
 }

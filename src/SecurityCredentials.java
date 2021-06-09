@@ -13,4 +13,38 @@ public class SecurityCredentials extends Member{
         this.dateCreated = dateCreated;
         this.dateOfExpiration = dateOfExpiration1;
     }
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
+    }
+
+    public int getPin() {
+        return pin;
+    }
+
+    public void setPin(int pin) {
+        this.pin = pin;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    @Override
+    public Date getDateOfExpiration() {
+        return dateOfExpiration;
+    }
+
+    @Override
+    public void setDateOfExpiration(Date dateOfExpiration) {
+        this.dateOfExpiration = dateOfExpiration;
+    }
 }

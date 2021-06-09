@@ -7,4 +7,12 @@ public class Guest extends Person{
         super(name, dateOfBirth, nicNumber);
         this.guestID = guestID;
     }
+
+    public Long getGuestID() {
+        return guestID;
+    }
+
+    public void setGuestID(Long guestID) {
+        this.guestID = guestID;
+    }
 }

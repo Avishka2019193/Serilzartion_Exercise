@@ -14,4 +14,36 @@ public class GuestEntranceRecord extends Guest{
         this.timeArrived = timeArrived;
         this.timeLeft = timeLeft;
     }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public Time getTimeArrived() {
+        return timeArrived;
+    }
+
+    public void setTimeArrived(Time timeArrived) {
+        this.timeArrived = timeArrived;
+    }
+
+    public Time getTimeLeft() {
+        return timeLeft;
+    }
+
+    public void setTimeLeft(Time timeLeft) {
+        this.timeLeft = timeLeft;
+    }
 }

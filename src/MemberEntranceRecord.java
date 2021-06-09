@@ -12,4 +12,28 @@ public class MemberEntranceRecord extends Member{
         this.timeArrived = timeArrived;
         this.timeLeft = timeLeft;
     }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public Time getTimeArrived() {
+        return timeArrived;
+    }
+
+    public void setTimeArrived(Time timeArrived) {
+        this.timeArrived = timeArrived;
+    }
+
+    public Time getTimeLeft() {
+        return timeLeft;
+    }
+
+    public void setTimeLeft(Time timeLeft) {
+        this.timeLeft = timeLeft;
+    }
 }

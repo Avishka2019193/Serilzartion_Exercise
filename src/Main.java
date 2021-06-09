@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner consoleInput = new Scanner(System.in);
+    private static Manager Manager = new Manager();
     public static void main(String[] args) {
         InputManager inputManager = new InputManager();
         // add boolean operator//
@@ -15,16 +16,18 @@ public class Main {
             choice = inputManager.getIntegerInput("\t ~ Enter your selection :", "Invalid Input !! " +
                     "Please Enter Valid Option Number...");
             // check all the inputs are in proper range //
-            if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5) {
+            if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5 || choice == 6) {
                 if (choice == 1) {
                     addMember();
                 } else if (choice == 2) {
-
+                   
                 } else if (choice == 3) {
                     displayMember();
                 } else if (choice == 4) {
-
+                    
                 } else if (choice == 5) {
+
+                }else if (choice == 6) {
                     
                 }
                 // Ask the user. What they want to do..//
@@ -41,13 +44,14 @@ public class Main {
 
     private static void displayMainMenu() {
 // Create main menu. Which user can understand what they want to do.//
-        System.out.println("~~~~~~~~~~~~~~~~~~~~Gym Manager~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~System Manager~~~~~~~~~~~~~~~~~~~~");
         System.out.println("\t Select an option given below..... ");
         System.out.println("\t 1) Add a new member to the the system.");
-        System.out.println("\t 2) Delete member in the system.");
-        System.out.println("\t 3) Print the list of members in the current system.");
-        System.out.println("\t 4) View list sort by name.");
-        System.out.println("\t 5) Open Graphical User Interface.");
+        System.out.println("\t 2) Add a new guest to the system.");
+        System.out.println("\t 3) Update existing member or guest details.");
+        System.out.println("\t 4) Print member list");
+        System.out.println("\t 5) Print guest list.");
+        System.out.println("\t 6) Print all entrance in given date.");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
 
@@ -56,7 +60,7 @@ public class Main {
         InputManager inputManager = new InputManager();
 
         // Check the member count
-        int memberCount = MyGymManager.getMemberCount();
+        int memberCount = Manager.getMemberCount();
         if (memberCount > 100) {
             System.out.println("Reached maximum number of members !!!");
         } else {
@@ -71,11 +75,6 @@ public class Main {
             String type = null;
             membershipNumber = inputManager.getIntegerInput("\t ~ Enter member number :", "Invalid Input !! " +
                     "Please Enter Valid Number...");
-            while (myGymManager.checkMemberExists(membershipNumber)) {
-                System.out.println("Member exists. Please enter a new Member ID");
-                membershipNumber = inputManager.getIntegerInput("\t ~ Enter member number :", "Invalid Input !! " +
-                        "Please Enter Valid Number...");
-            }
             name = inputManager.getAlphabetic("\t ~ Enter full name :", "Invalid Input !!" +
                     "Please Enter Valid Name...");
             contactNumber = inputManager.getIntegerInput("\t ~ Enter contact number :", "Invalid Input !! " +
@@ -92,29 +91,29 @@ public class Main {
             System.out.println("\t \t C) Make a over 60 member.");
             type = inputManager.getAlphabetic("\t ~ Enter the type you want :", "Invalid Input !!" +
                     "Please Enter Valid Letter...");
-
-            DefaultMember member = null;
-
-            while (true) {
-                if ("A".equals(type.toUpperCase())) {
-                    member = new DefaultMember(membershipNumber, name, address, contactNumber, startMembershipDate);
-                    break;
-                } else if ("B".equals(type.toUpperCase())) {
-                    System.out.print("\t ~ Enter school name :");
-                    String schoolName = consoleInput.next();
-                    member = new StudentMember(membershipNumber, name, address, contactNumber, startMembershipDate, schoolName);
-                    break;
-                } else if ("C".equals(type.toUpperCase())) {
-                    Integer age = inputManager.getIntegerInput("\t~ Enter Age:", "Invalid age. Please enter a valid age");
-                    member = new Over60Member(membershipNumber, name, address, contactNumber, startMembershipDate, age);
-                    break;
-                } else {
-                    System.out.println("Invalid Member type. Please re-enter");
-                    type = inputManager.getAlphabetic("\t ~ Enter the type you want :", "Invalid Input !!" +
-                            "Please Enter Valid Letter...");
-                }
-            }
-            myGymManager.addMember(member);
+//
+            Person member = null;
+//
+//            while (true) {
+//                if ("A".equals(type.toUpperCase())) {
+//                    member = new DefaultMember(membershipNumber, name, address, contactNumber, startMembershipDate);
+//                    break;
+//                } else if ("B".equals(type.toUpperCase())) {
+//                    System.out.print("\t ~ Enter school name :");
+//                    String schoolName = consoleInput.next();
+//                    member = new StudentMember(membershipNumber, name, address, contactNumber, startMembershipDate, schoolName);
+//                    break;
+//                } else if ("C".equals(type.toUpperCase())) {
+//                    Integer age = inputManager.getIntegerInput("\t~ Enter Age:", "Invalid age. Please enter a valid age");
+//                    member = new Over60Member(membershipNumber, name, address, contactNumber, startMembershipDate, age);
+//                    break;
+//                } else {
+//                    System.out.println("Invalid Member type. Please re-enter");
+//                    type = inputManager.getAlphabetic("\t ~ Enter the type you want :", "Invalid Input !!" +
+//                            "Please Enter Valid Letter...");
+//                }
+//            }
+            Manager.addMember(member);
         }
 
 

@@ -4,9 +4,9 @@ public class Member extends Person {
     private Long memberID;
     private Date dateOfRegistration;
     private Date dateOfExpiration;
-    private SecurityCredentials credential;
+    private String credential;
 
-    public Member(String name, Date dateOfBirth, String nicNumber, Long memberID, Date dateOfRegistration, Date dateOfExpiration, SecurityCredentials credential) {
+    public Member(String name, Date dateOfBirth, String nicNumber, Long memberID, Date dateOfRegistration, Date dateOfExpiration, String credential) {
         super(name, dateOfBirth, nicNumber);
         this.memberID = memberID;
         this.dateOfRegistration = dateOfRegistration;
@@ -38,11 +38,11 @@ public class Member extends Person {
         this.dateOfExpiration = dateOfExpiration;
     }
 
-    public SecurityCredentials getCredential() {
+    public String getCredential() {
         return credential;
     }
 
-    public void setCredential(SecurityCredentials credential) {
+    public void setCredential(String credential) {
         this.credential = credential;
     }
 }

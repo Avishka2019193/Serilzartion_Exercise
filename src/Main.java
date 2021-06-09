@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
+
 public class Main {
     private static Scanner consoleInput = new Scanner(System.in);
     private static Manager Manager = new Manager();
@@ -28,7 +29,7 @@ public class Main {
                 } else if (choice == 2) {
 
                 } else if (choice == 3) {
-                    displayMember();
+
                 } else if (choice == 4) {
 
                 } else if (choice == 5) {
@@ -66,14 +67,60 @@ public class Main {
         InputManager inputManager = new InputManager();
 
         String name = null;
-        Date dateOfBirth;
-        String nicNumber;
-        Long memberID;
-        Date dateOfRegistration;
-        Date dateOfExpiration;
-        SecurityCredentials credential;
+        Date dateOfBirth, dateOfRegistration, dateOfExpiration = null;
+        String nicNumber, credential = null;
+        Long memberID = null;
 
         name = inputManager.getAlphabetic("\t ~ Enter full name :", "Invalid Input !!" +
+                "Please Enter Valid Name...");
+        System.out.println("date of birth (yyyy/MM/dd)");
+        DateFormat format = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+
+        try {
+            dateOfBirth = format.parse(consoleInput.next());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Enter National ID Card Number:");
+        nicNumber = consoleInput.next();
+
+        memberID = inputManager.getLongInput("\t ~ Member ID :", "Invalid Input !!" +
+                "Please Enter Valid Member ID...");
+
+        System.out.println("Registration date (yyyy/MM/dd)");
+
+        try {
+            dateOfRegistration = format.parse(consoleInput.next());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Membership expiration date (yyyy/MM/dd)");
+
+        try {
+            dateOfExpiration = format.parse(consoleInput.next());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Enter member credential:");
+        credential = consoleInput.next();
+
+
+
+        Person member = null;
+        Manager.addMember(member);
+    }
+
+    private static void addGuest() {
+        System.out.println("~~~~~~~Add Guest~~~~~~~~\n");
+        InputManager input_Manager = new InputManager();
+
+        String name, nicNumber, credential = null;
+        Date dateOfBirth, dateOfRegistration, dateOfExpiration;
+        Long memberID;
+
+        name = input_Manager.getAlphabetic("\t ~ Enter full name :", "Invalid Input !!" +
                 "Please Enter Valid Name...");
         System.out.println("add date (yyyy/MM/dd)");
         DateFormat format = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
@@ -84,32 +131,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        Person member = null;
-//
-//            while (true) {
-//                if ("A".equals(type.toUpperCase())) {
-//                    member = new DefaultMember(membershipNumber, name, address, contactNumber, startMembershipDate);
-//                    break;
-//                } else if ("B".equals(type.toUpperCase())) {
-//                    System.out.print("\t ~ Enter school name :");
-//                    String schoolName = consoleInput.next();
-//                    member = new StudentMember(membershipNumber, name, address, contactNumber, startMembershipDate, schoolName);
-//                    break;
-//                } else if ("C".equals(type.toUpperCase())) {
-//                    Integer age = inputManager.getIntegerInput("\t~ Enter Age:", "Invalid age. Please enter a valid age");
-//                    member = new Over60Member(membershipNumber, name, address, contactNumber, startMembershipDate, age);
-//                    break;
-//                } else {
-//                    System.out.println("Invalid Member type. Please re-enter");
-//                    type = inputManager.getAlphabetic("\t ~ Enter the type you want :", "Invalid Input !!" +
-//                            "Please Enter Valid Letter...");
-//                }
-//            }
-        Manager.addMember(member);
-    }
-
-
-    private static void displayMember() {
-
+        System.out.println("Enter National ID Card Number:");
+        nicNumber = consoleInput.next();
+        Person guest = null;
+        Manager.addGuest(guest);
     }
 }

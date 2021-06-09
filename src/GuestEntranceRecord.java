@@ -2,7 +2,7 @@ import java.sql.Time;
 import java.util.Date;
 
 public class GuestEntranceRecord extends Guest{
-    private  Guest guest;
+    private Guest guest;
     private String purpose;
     private Time timeArrived;
     private Time timeLeft;

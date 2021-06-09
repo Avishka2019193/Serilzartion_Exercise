@@ -6,8 +6,8 @@ public class SecurityCredentials extends Member{
     private Date dateCreated;
     private Date dateOfExpiration;
 
-    public SecurityCredentials(Long memberID, Date dateOfRegistration, Date dateOfExpiration, SecurityCredentials credential, Long userID, int pin, Date dateCreated, Date dateOfExpiration1) {
-        super(memberID, dateOfRegistration, dateOfExpiration, credential);
+    public SecurityCredentials(String name, Date dateOfBirth, String nicNumber, Long memberID, Date dateOfRegistration, Date dateOfExpiration, SecurityCredentials credential, Long userID, int pin, Date dateCreated, Date dateOfExpiration1) {
+        super(name, dateOfBirth, nicNumber, memberID, dateOfRegistration, dateOfExpiration, credential);
         this.userID = userID;
         this.pin = pin;
         this.dateCreated = dateCreated;

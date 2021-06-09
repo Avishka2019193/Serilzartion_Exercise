@@ -9,9 +9,10 @@ import java.util.Scanner;
 public class Main {
     private static Scanner consoleInput = new Scanner(System.in);
     private static Manager Manager = new Manager();
+    private static InputManager inputManager = new InputManager();
 
     public static void main(String[] args) {
-        InputManager inputManager = new InputManager();
+
         // add boolean operator//
         String isNeedToContinue = "y";
         // if user enter upper case later then program will generate it into lowe case later.//
@@ -137,6 +138,23 @@ public class Main {
         Manager.addGuest(guest);
     }
     private static void updateRecord(){
-        
+        String type = null;
+        System.out.println("\t ~ Select the type you want to update...");
+        System.out.println("\t \t A) update member records.");
+        System.out.println("\t \t B) update guest records.");
+        type = inputManager.getAlphabetic("\t ~ Enter the type you want :", "Invalid Input !!" +
+                "Please Enter Valid Letter...");
+
+        while (true) {
+            if ("A".equals(type.toUpperCase())) {
+
+            } else if ("B".equals(type.toUpperCase())) {
+
+            } else {
+                System.out.println("Invalid type. Please re-enter");
+                type = inputManager.getAlphabetic("\t ~ Enter the type you want :", "Invalid Input !!" +
+                        "Please Enter Valid Letter...");
+            }
+        }
     }
 }
